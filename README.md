@@ -1,3 +1,9 @@
+# Brief explanation of technologies used 
+
+For the home assignment I decided to make a Github Actions pipeline that builds, tests and deploys to GKE. The reason for choosing Github Actions is that it is available 24/7 and does not require manual installation of a CI/CD server/app like Jenkins or Gitlab. GKE is a fitting choice for deploying k8s, since it does not require manual installation and hosting of an open source solution like minikube. Kustomize, a tool which is used to edit k8s config files in shell is used at the end of the ci/cd pipeline to deploy the latest build without having to adjust the actual k8s config files themselves.
+
+
+
 # Formlabs DevOps home assignment
 
 This repository contains a home assignment code for DevOps applicants for Formlabs.
