@@ -27,6 +27,16 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
+
+    - name: Build & Run test script file
+      run: |
+         pip install virtualenv
+         chmod +x build.sh
+         ./build.sh &&
+         chmod +x test.sh &&
+         ./test.sh
+      shell: bash
+        
     # Setup gcloud CLI
     - uses: google-github-actions/setup-gcloud@94337306dda8180d967a56932ceb4ddcf01edae7
       with:
@@ -45,7 +55,7 @@ jobs:
         credentials: ${{ secrets.GCP_CREDENTIALS }}
 
     # Build the Docker image
-    - name: Build
+    - name: Build Docker
       run: |-
         docker build \
           --tag "gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA" \
