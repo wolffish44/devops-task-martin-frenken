@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gke-hello-app
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: gke-hello-app
+    spec:
+      containers:
+      - name: hello-app
+        image: gcr.io/PROJECT_ID/IMAGE:TAG
+        ports:
+        - containerPort: 8080
